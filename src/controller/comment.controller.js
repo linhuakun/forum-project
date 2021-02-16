@@ -2,9 +2,11 @@ const commentservice=require('../service/comment.service')
 
 class CommentController {
     async create(ctx,next){
+
         const {momentId,content}=ctx.request.body;
         const {id}= ctx.user;
         const result=await commentservice.create(momentId,content,id)
+   
         ctx.body=result
     }
     async reply(ctx,next){
@@ -30,6 +32,11 @@ class CommentController {
         const {momentId} = ctx.query;
         const result = await commentservice.getCommentsByMomentId(momentId);
         ctx.body = result;
+    }
+    async commentname(ctx,next){
+        const {commentId}=ctx.params;
+        const result = await commentservice.getCommentName(commentId)
+        ctx.body =result
     }
 }
 

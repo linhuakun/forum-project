@@ -29,8 +29,8 @@ class MomentService {
     (SELECT 	IF(COUNT(c.id),JSON_ARRAYAGG(
             JSON_OBJECT('id', c.id, 'content', c.content, 'commentId', c.comment_id,'CREATETIME',c.createAt, 
                                     'user', JSON_OBJECT('id', cu.id, 'name', cu.name,'avatarUrl',cu.avatar_url))
-                                    ), NULL) FROM comment c LEFT JOIN user cu ON c.user_id=cu.id WHERE m.id=c.moment_id) comments,
-                                    (SELECT JSON_ARRAYAGG(CONCAT('http://117.78.10.101:8001/moment/images/',file.filename)) 
+                                    ), NULL) FROM comment c LEFT JOIN user cu ON c.user_id=cu.id WHERE m.id=c.moment_id ) comments,
+                                    (SELECT JSON_ARRAYAGG(CONCAT('http://localhost:8000/moment/images/',file.filename)) 
                                     FROM file WHERE m.id=file.moment_id) images
     FROM moment m
     LEFT JOIN user u ON m.user_id = u.id

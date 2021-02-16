@@ -23,10 +23,14 @@ const errorHandler = (error, ctx) => {
             status = 401; //confict冲突
             message = "无效token";
             break;
-            case errorType.NOEXISTAUTHORIZATION:
-                status = 402; //confict冲突
-                message = "token无上传";
-                break;
+        case errorType.NOEXISTAUTHORIZATION:
+            status = 402; //confict冲突
+            message = "token无上传";
+            break;
+        case errorType.ISNOTFRIST:
+            status = 402;
+            message ="不是第一次";
+            break
         case errorType.UNPERMISSION:
             status = 401; //confict冲突
             message = "你不具备操作权限";

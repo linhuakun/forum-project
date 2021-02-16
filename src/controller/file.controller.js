@@ -31,7 +31,8 @@ class FileController {
             //3、返回结果
             ctx.body = {
                 status: "200",
-                message: "修改成功"
+                message: "修改成功",
+                url:"http://localhost:8000/users/"+id+"/avatar"
             }
         } else {
             await fileService.createAvatar(filename, mimetype, size, id)
@@ -41,7 +42,8 @@ class FileController {
             //3、返回结果
             ctx.body = {
                 status: "200",
-                message: "上传成功"
+                message: "上传成功",
+                url:"http://localhost:8000/users/"+id+"/avatar"
             }
         }
     }
@@ -61,6 +63,5 @@ class FileController {
             message:"动态配图上传完成"
         }
     }
-    async
 }
 module.exports = new FileController();

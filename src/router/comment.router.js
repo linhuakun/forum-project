@@ -5,6 +5,7 @@ const commentRouter = new Router({prefix:'/comment'});
 const{
     verifyAuth,
     verifyPermisson,
+    
 }= require('../middleware/auth.middleware')
 
 const{
@@ -12,7 +13,8 @@ const{
     reply,
     update,
     remove,
-    list
+    list,
+    commentname
 }= require('../controller/comment.controller.js')
 
 //发表评论
@@ -25,6 +27,8 @@ commentRouter.patch('/:commentId',verifyAuth,verifyPermisson,update);
 commentRouter.delete('/:commentId',verifyAuth,verifyPermisson,remove);
 //获取评论列表
 commentRouter.get('/',list)
+//获取评论姓名
+commentRouter.get('/:commentId',commentname)
 
 
 module.exports=commentRouter;

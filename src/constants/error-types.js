@@ -6,6 +6,7 @@ const PASSWORD_IS_INCORRECT='password_is_incorrect';
 const UNAUTHORIZATION='unauthorization';
 const NOEXISTAUTHORIZATION='noexistauthorization'
 const UNPERMISSION='unpermission'
+const ISNOTFRIST='isnotfrist'
 
 module.exports={
     NAME_OR_PASSWORD_IS_NOT_REQUIRED,
@@ -14,5 +15,6 @@ module.exports={
     PASSWORD_IS_INCORRECT,
     UNAUTHORIZATION,
     UNPERMISSION,
-    NOEXISTAUTHORIZATION
+    NOEXISTAUTHORIZATION,
+    ISNOTFRIST
 }
